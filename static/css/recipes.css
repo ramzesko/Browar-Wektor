@@ -1,0 +1,46 @@
+.list-group{
+    width: 800px;
+}
+.recipe {
+    margin-bottom: 70px;
+    color: #ffffff;
+    text-align: justify;
+    align-self: center;
+    width: 800px;
+}
+.panel-default{
+    background-color: rgba(0,0,0,0.5);
+}
+#prawa{
+    /*width=70%;*/
+    float:right;
+    /*padding-top: 50px;*/
+    /*padding-right: 20px;*/
+    }
+#lewa{
+    /*width=70%;*/
+    float:left;
+    /*margin-bottom:80px,*/
+    /*padding: 50px;*/
+}
+#dol{
+    clear: both;
+}
+#gora{
+    vertical-align: middle;
+    max-height: 250px;
+    margin-bottom: 20px;
+}
+.content{
+    background-color: transparent;
+    border-color: transparent;
+}
+#close-button{
+    float: right;
+}
+.btn-default{
+    background-color: transparent;
+}
+.btn-default:hover{
+    background-color: #000000;
+}

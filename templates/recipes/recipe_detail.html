@@ -1,0 +1,79 @@
+{% extends 'recipes/base.html' %}
+
+{% block content %}
+    <div class="recipe animated zoomIn">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ recipe.title }} w stylu {{ recipe.style }}
+                <div id="close-button"><a class="btn btn-default" href="{% url 'recipes_list' %}"><span class="glyphicon glyphicon-remove"></span></a></div>
+            </div>
+            <div class="panel-body">
+{#            <div id="gora">#}
+                <div id="prawa">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Parametry</div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <th>Ekstrakt</th>
+                                    <th>{{ recipe.OG }} BLG</th>
+                                </tr>
+                                <tr>
+                                    <th>Alkohol objętościowo</th>
+                                    <th>{{ recipe.ABV }} %</th>
+                                </tr>
+                                <tr>
+                                    <th>IBU</th>
+                                    <th>{{ recipe.IBU }}</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="lewa">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                    <img src="../../{{ recipe.foto }}" class="img-rounded" height="430px">
+                        </div>
+                    </div>
+                </div>
+{#            </div>#}
+                <div class="panel panel-default" id="dol">
+                    <div class="panel-heading">Składniki</div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Zasyp</th>
+                                        <th>Chmielenie</th>
+                                        <th>Dodatki</th>
+                                        <th>Drożdże</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {%  for row in ingredients %}
+                                    <tr>
+                                        {% for elem in row %}
+                                            <td>{{ elem }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Komentarz</div>
+                        <div class="panel-body" id="comment">{{ recipe.text }}</div>
+                </div>
+            </div>
+        </div>
+{#        {% if recipe.brew_date %}#}
+{#            <div class="date">#}
+{#                {{ recipe.brew_date }}#}
+{#            </div>#}
+{#        {% endif %}#}
+{#        <h1>{{ recipe.title }}</h1>#}
+{#        <p>{{ recipe.text|linebreaksbr }}</p>#}
+    </div>
+{% endblock %}

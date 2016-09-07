@@ -1,0 +1,14 @@
+{% extends 'recipes/base.html' %}
+
+{%  block content %}
+    <div class="list-group animated bounceInUp">
+    {% for recipe in recipes %}
+            <a href="{%  url 'recipe_detail' pk=recipe.pk %}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{recipe.title}}</h4>
+                <p>w stylu {{ recipe.style }}</p>
+                <p class="list-group-item-text">Ekstrakt {{recipe.OG}} BLG | Alkohol objętościowo {{ recipe.ABV }}% | IBU {{ recipe.IBU }}</p>
+                <p>Data warzenia: {{ recipe.brew_date }}</p>
+            </a>
+    {% endfor %}
+    </div>
+{% endblock %}
