@@ -1,3 +1,4 @@
+import itertools
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.utils import timezone
@@ -19,21 +20,17 @@ def recipe_detail(request, pk):
     for malt,hop,other,yeast in zip(malts_all,hops_all,other_all,yeast_all):
         if recipe in malt.recipe_set.all():
             malts.append(malt)
-        else: malts.append('')
+        #else: malts.append('')
         if recipe in hop.recipe_set.all():
             hops.append(hop)
-        else: hops.append('')
+        #else: hops.append('')
         if recipe in other.recipe_set.all():
             others.append(other)
-        else: others.append('')
+        #else: others.append('')
         if recipe in yeast.recipe_set.all():
             yeasts.append(yeast)
-        else: yeasts.append('')
-        print(len(malts))
-        print(hops)
-        print(others)
-        print(yeasts)
-        ingredients=list(zip(malts,hops,others,yeasts))
+        #else: yeasts.append('')
+        ingredients=list(itertools.zip_longest(malts,hops,others,yeasts, fillvalue=''))
     return render(request, 'recipes/recipe_detail.html', {'recipe': recipe, 'ingredients':ingredients})
 #def post_new(request):
 #    if request.method=='POST':
