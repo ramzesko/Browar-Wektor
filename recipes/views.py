@@ -17,7 +17,8 @@ def recipe_detail(request, pk):
     hops = []
     others = []
     yeasts = []
-    for malt,hop,other,yeast in itertools.zip_longest(malts_all,hops_all,other_all,yeast_all, fillvalue=Malt.objects.get(variety='-')):
+    #for malt,hop,other,yeast in itertools.zip_longest(malts_all,hops_all,other_all,yeast_all, fillvalue=Malt.objects.get(variety='-')):
+    for malt, hop, other, yeast in zip(malts_all, hops_all, other_all, yeast_all):
         if recipe in malt.recipe_set.all():
             malts.append(malt)
         #else: malts.append('')
