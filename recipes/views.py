@@ -9,29 +9,32 @@ def recipes_list(request):
     return render(request, 'recipes/recipes_list.html', {'recipes': recipes})
 def recipe_detail(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
-    malts_all = Malt.objects.all()
-    hops_all = Hop.objects.all()
-    other_all = Other.objects.all()
-    yeast_all = Yeast.objects.all()
-    malts = []
-    hops = []
-    others = []
-    yeasts = []
+    # malts_all = Malt.objects.all()
+    # hops_all = Hop.objects.all()
+    # other_all = Other.objects.all()
+    # yeast_all = Yeast.objects.all()
+    # malts = []
+    # hops = []
+    # others = []
+    # yeasts = []
     #for malt,hop,other,yeast in itertools.zip_longest(malts_all,hops_all,other_all,yeast_all, fillvalue=Malt.objects.get(variety='-')):
-    for malt, hop, other, yeast in zip(malts_all, hops_all, other_all, yeast_all):
-        if recipe in malt.recipe_set.all():
-            malts.append(malt)
+    #for malt, hop, other, yeast in zip(malts_all, hops_all, other_all, yeast_all):
+        #if recipe in malt.recipe_set.all():
+        #    malts.append(malt)
         #else: malts.append('')
-        if recipe in hop.recipe_set.all():
-            hops.append(hop)
+        #if recipe in hop.recipe_set.all():
+        #    hops.append(hop)
         #else: hops.append('')
-        if recipe in other.recipe_set.all():
-            others.append(other)
+        #if recipe in other.recipe_set.all():
+        #    others.append(other)
         #else: others.append('')
-        if recipe in yeast.recipe_set.all():
-            yeasts.append(yeast)
+        #if recipe in yeast.recipe_set.all():
+        #    yeasts.append(yeast)
         #else: yeasts.append('')
-        ingredients=list(itertools.zip_longest(malts,hops,others,yeasts, fillvalue=''))
+        #print(recipe.hops.all())
+        #ingredients = list(itertools.zip_longest(malts, hops, others, yeasts, fillvalue=''))
+    ingredients=list(itertools.zip_longest(recipe.malts.all(),recipe.hops.all(),recipe.other.all(),recipe.yeast.all(), fillvalue=''))
+        #print(ingredients)
     return render(request, 'recipes/recipe_detail.html', {'recipe': recipe, 'ingredients':ingredients})
 #def post_new(request):
 #    if request.method=='POST':
