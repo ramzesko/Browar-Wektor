@@ -201,13 +201,13 @@ body {
 }
 .post {
     margin-bottom: 70px;
-    color: #4cae4c;
+    color: #ffffff;
     text-align: justify;
     align-self: center;
     width: 800px;
 }
 
 .post h1 a, .post h1 a:visited {
-    color: #761c19;
+    color: #985f0d;
 }
 
