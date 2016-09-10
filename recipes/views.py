@@ -32,7 +32,7 @@ def recipe_detail(request, pk):
         #    yeasts.append(yeast)
         #else: yeasts.append('')
         #ingredients = list(itertools.zip_longest(malts, hops, others, yeasts, fillvalue=''))
-    ingredients=list(itertools.zip_longest(recipe.malts.all(),recipe.hops.all(),recipe.other.all(),recipe.yeast.all(), fillvalue=''))
+    ingredients=list(itertools.zip_longest(recipe.malts.all().order_by('-zasyp__weight'),recipe.hops.all().order_by('chmielenie__weight'),recipe.other.all(),recipe.yeast.all(), fillvalue=''))
     return render(request, 'recipes/recipe_detail.html', {'recipe': recipe, 'ingredients':ingredients})
 #def post_new(request):
 #    if request.method=='POST':
