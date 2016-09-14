@@ -5,7 +5,7 @@ from django.utils import timezone
 #from .form import PostForm
 
 def recipes_list(request):
-    recipes = Recipe.objects.filter(brew_date__lte=timezone.now()).order_by('brew_date')
+    recipes = Recipe.objects.filter(brew_date__lte=timezone.now()).order_by('-brew_date')
     return render(request, 'recipes/recipes_list.html', {'recipes': recipes})
 def recipe_detail(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
