@@ -53,8 +53,8 @@
                                 <tbody>
                                 {%  for row in ingredients %}
                                     <tr>
-                                            <td>{{ row.0 }}{% if row.1 %} {{ row.1 }} kg{% endif %}</td>
-                                            <td>{{ row.2 }}{% if row.2 %} {{ row.3 }} g{% endif %}</td>
+                                            <td>{{ row.0 }}{% if row.1 and row.1 != None %} {{ row.1 }} kg{% endif %}</td>
+                                            <td>{{ row.2 }}{% if row.2 and row.3 != None %} {{ row.3 }} g{% endif %}</td>
                                             <td>{{ row.4 }}</td>
                                             <td>{{ row.5 }}</td>
                                     </tr>
