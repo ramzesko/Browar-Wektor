@@ -53,9 +53,10 @@
                                 <tbody>
                                 {%  for row in ingredients %}
                                     <tr>
-                                        {% for elem in row %}
-                                            <td>{{ elem }}</td>
-                                        {% endfor %}
+                                            <td>{{ row.0 }} {{ row.1 }} kg</td>
+                                            <td>{{ row.2 }} {{ row.3 }} g</td>
+                                            <td>{{ row.4 }}</td>
+                                            <td>{{ row.5 }}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
