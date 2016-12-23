@@ -32,10 +32,10 @@ def recipe_detail(request, pk):
         #    yeasts.append(yeast)
         #else: yeasts.append('')
         #ingredients = list(itertools.zip_longest(malts, hops, others, yeasts, fillvalue=''))
-    zasypy = Zasyp.objects.filter(recipe_id=pk)
-    chmiele = Chmielenie.objects.filter(recipe_id=pk)
-    mass1 = [elem.weight for elem in zasypy]
-    mass2 = [elem.weight for elem in chmiele]
+    #zasypy = Zasyp.objects.filter(recipe_id=pk)
+    #chmiele = Chmielenie.objects.filter(recipe_id=pk)
+    mass1 = [elem.weight for elem in Zasyp.objects.filter(recipe_id=pk)]
+    mass2 = [elem.weight for elem in Chmielenie.objects.filter(recipe_id=pk)]
     mass1.sort(reverse=True)
     mass2.sort(reverse=True)
     ingredients=list(itertools.zip_longest(recipe.malts.all().order_by('-zasyp__weight'),mass1,recipe.hops.all().order_by('chmielenie__weight'),mass2,recipe.other.all(),recipe.yeast.all(), fillvalue=''))
