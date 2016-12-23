@@ -33,7 +33,11 @@
                 <div id="lewa">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                    <img src="../../{{ recipe.foto }}" class="img-rounded" height="430px">
+                    {% if recipe.foto %}
+                        <img src="../../{{ recipe.foto }}" class="img-rounded" height="430px">
+                    {% else %}
+                        <img src="../../static/pictures/logo-uproszczone.png" class="img-rounded" width="400px">
+                    {% endif %}
                         </div>
                     </div>
                 </div>
