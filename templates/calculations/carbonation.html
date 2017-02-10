@@ -1,0 +1,12 @@
+{% extends 'calculations/base.html' %}
+
+{% block content %}
+<p>Kalkulator surowca do refermentacji</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+    {% block result %}
+    {% endblock %}
+{% endblock %}
