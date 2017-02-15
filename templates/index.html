@@ -46,6 +46,14 @@
                                 <li class="active"><a href="#">Strona Główna</a></li>
                                 <li><a href="{% url 'post_list' %}">Dziennik</a></li>
                                 <li><a href="{% url 'recipes_list' %}">Receptury</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kalkulatory<span class="caret"></span></a>
+					                <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{% url 'carbonation' %}">Kalkulator nagazowania</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
