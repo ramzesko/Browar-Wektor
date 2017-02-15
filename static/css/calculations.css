@@ -14,9 +14,9 @@ a:hover {
     align-self: center;
     float: left;
 }
-.tip {
+.result {
     float: right;
-    width: 30%;
+    /*width: 30%;*/
 }
 input, select, textarea {
     color: #000000;
