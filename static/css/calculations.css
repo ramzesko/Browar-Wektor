@@ -1,0 +1,33 @@
+.content {
+    background-color: rgba(0,0,0,0.75);
+    align-self: center;
+    border: 1px solid #ffffff;
+}
+a,
+a:focus,
+a:hover {
+  color: #868383;
+}
+.calculator {
+    padding: 5%;
+    width: 70%;
+    align-self: center;
+    float: left;
+}
+.tip {
+    float: right;
+    width: 30%;
+}
+input, select, textarea {
+    color: #000000;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    padding: 5%;
+}
+input:focus {
+    background-color: #333;
+    color: #ffffff;
+}
+input[type=submit] {
+    margin-top: 5%;
+}
