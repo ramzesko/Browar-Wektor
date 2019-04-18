@@ -1,0 +1,40 @@
+{% extends 'calculations/base.html' %}
+
+{% block content %}
+    <h2>Kalkulator surowca do refermentacji</h2>
+    <p>
+        Formuła opracowana na podstawie
+        <a href="https://www.homebrewersassociation.org/attachments/0000/2497/Math_in_Mash_SummerZym95.pdf" target="_blank">artykułu</a>
+        z Zymurgy Summer 95': Math in Mash wydawanego przez American Home Brewers' Association.
+    </p>
+    <p align="justify">
+    Kalkulator oblicza masę zwykłego białego cukru (sacharozy) potrzebną do nagazowania piwa pożądaną ilością dwutlenku węgla wyrażoną w jednostkach vol., oznaczających liczbę litrów dwutlenku węgla na litr piwa.
+    Poziom nagazowania zależy od indywidualnych upodobań oraz charakterystyki stylu. Stouty nagazowuje się nisko w przedziale 1.5-2.0 vol., piwa pszeniczne i kwaśne zwykle od 2.5 do 4 vol.
+    Osobiście preferuję i polecam niskie nagazowanie w przedziale 1.8-2.4 vol. do wszystkich stylów piwa. Wartości te są bezpieczne i nawet w przypadku niewielkiego niedofermentowania piwa domowego (zwłaszcza jeżeli
+    planujesz długie przechowywanie w butelkach) pozostawiają pewien margines zapobiegający efektowi gushingu lub przemianie butelek z Twoim piwem w tzw. granaty.
+    </p>
+    <div class="calculator">
+    <form method="post" class="post-form">
+        {% csrf_token %}
+        <table>
+        {% for field in form %}
+            <tr>
+                <td>{{ field.label }}</td>
+                <td>{{ field }}</td>
+                <td>{{ field.errors }}</td>
+{#                <td><button class="btn btn-hover" data-toggle="modal" data-target="#tip"><span class="glyphicon glyphicon-question-sign"></span></button></td>#}
+            </tr>
+        {% endfor %}
+        </table>
+        <input type="submit" value="Oblicz" class="save btn btn-default" />
+    </form>
+    </div>
+{#    <div class="tip">#}
+{#        {% block tip %}#}
+{#        {% endblock %}#}
+{#    </div>#}
+    <div class="result animated fadeIn">
+        {% block result %}
+        {% endblock %}
+    </div>
+{% endblock %}

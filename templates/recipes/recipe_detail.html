@@ -33,7 +33,11 @@
                 <div id="lewa">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                    <img src="../../{{ recipe.foto }}" class="img-rounded" height="430px">
+                    {% if recipe.foto %}
+                        <img src="../../{{ recipe.foto }}" class="img-rounded" height="430px">
+                    {% else %}
+                        <img src="../../static/pictures/logo-uproszczone.png" class="img-rounded" width="400px">
+                    {% endif %}
                         </div>
                     </div>
                 </div>
@@ -53,9 +57,10 @@
                                 <tbody>
                                 {%  for row in ingredients %}
                                     <tr>
-                                        {% for elem in row %}
-                                            <td>{{ elem }}</td>
-                                        {% endfor %}
+                                            <td>{{ row.0 }}{% if row.1 and row.1 != None %} {{ row.1 }} kg{% endif %}</td>
+                                            <td>{{ row.2 }}{% if row.2 and row.3 != None %} {{ row.3 }} g{% endif %}</td>
+                                            <td>{{ row.4 }}</td>
+                                            <td>{{ row.5 }}</td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
